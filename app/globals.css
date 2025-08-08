@@ -681,6 +681,19 @@ footer {
   border-color: #3b82f6 !important;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
 }
+/* Fix for browser autofill styles overriding dark theme */
+#contact-form input:-webkit-autofill,
+#contact-form input:-webkit-autofill:hover,
+#contact-form input:-webkit-autofill:focus,
+#contact-form input:-webkit-autofill:active,
+#contact-form textarea:-webkit-autofill,
+#contact-form textarea:-webkit-autofill:hover,
+#contact-form textarea:-webkit-autofill:focus,
+#contact-form textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 40px #1B1B1B inset !important;
+  -webkit-text-fill-color: #f9fafb !important;
+  caret-color: #f9fafb !important;
+}
 
 #contact-form label,
 #contact-form #checkbox-group-label {
