@@ -696,38 +696,38 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <div className="section-divider"></div>
-
       {/* Footer - Enhanced with disclaimer */}
-      <footer className="bg-slate-900 text-white py-6 px-4 sm:px-6 lg:px-8 mb-28 md:mb-0">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 text-center md:mb-0 md:text-left">
-              <h3 className="text-2xl font-bold text-white mb-2">Genassistant</h3>
-              <p className="text-slate-400">Your AI Executive Assistant for Email</p>
+      <div className="bg-[#27305C] pb-28 md:pb-0">
+        <footer className="text-white py-6 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="mb-6 text-center md:mb-0 md:text-left">
+                <h3 className="text-2xl font-bold text-white mb-2">Genassistant</h3>
+                <p className="text-slate-400">Your AI Executive Assistant for Email</p>
+              </div>
+              <div className="flex flex-col items-center gap-4">
+                <a
+                  href="mailto:support@genassistant.ai"
+                  className="text-slate-400 hover:text-white flex items-center gap-2 hover:underline transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  support@genassistant.ai
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col items-center gap-4">
-              <a
-                href="mailto:support@genassistant.ai"
-                className="text-slate-400 hover:text-white flex items-center gap-2 hover:underline transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                support@genassistant.ai
-              </a>
-            </div>
-          </div>
-          <div className="border-t border-slate-800 mt-6 pt-6 text-center space-y-2">
-            <p className="text-slate-400">© 2025 Genassistant. All rights reserved.</p>
-            <p className="text-xs text-slate-500">
-              Genassistant is not affiliated with Microsoft, Google, or any email providers. It integrates securely to work directly with your existing tools.
-            </p>
-            <p className="text-xs text-slate-600 mt-4 max-w-4xl mx-auto">
-              Note: Time saved estimates factor in average reading and writing speeds, typical daily email volumes, and reduced time lost to context switching and distractions.
+            <div className="border-t border-slate-800 mt-6 pt-6 text-center space-y-2">
+              <p className="text-slate-400">© 2025 Genassistant. All rights reserved.</p>
+              <p className="text-xs text-slate-500">
+                Genassistant is not affiliated with Microsoft, Google, or any email providers. It integrates securely to work directly with your existing tools.
+              </p>
+              <p className="text-xs text-slate-600 mt-4 max-w-4xl mx-auto">
+                Note: Time saved estimates factor in average reading and writing speeds, typical daily email volumes, and reduced time lost to context switching and distractions.
 Actual savings vary by workflow and volume. Users with high email loads and strong habits may see even greater gains.
-            </p>
+              </p>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   )
 }
