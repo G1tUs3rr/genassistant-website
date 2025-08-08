@@ -20,17 +20,17 @@ export async function POST(request: Request) {
       emailProvider,
       teamSize,
       emailVolume,
-      issues: pain_points,
+      issues,
       otherChallenge,
     } = data
 
     // Validate required fields
-    if (!name || !email || !emailProvider || !teamSize || !emailVolume || !pain_points || pain_points.length === 0) {
+    if (!name || !email || !emailProvider || !teamSize || !emailVolume || !issues || issues.length === 0) {
       return NextResponse.json({ message: "Missing required fields" }, { status: 400 })
     }
 
     // If 'other' is a pain point, the otherChallenge text must be present
-    if (pain_points.includes("other") && !otherChallenge) {
+    if (issues.includes("other") && !otherChallenge) {
       return NextResponse.json({ message: "Missing required fields" }, { status: 400 })
     }
 
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
       RETURNING id;
     `
-    const values = [name, email, role, emailProvider, teamSize, emailVolume, pain_points, otherChallenge]
+    const values = [name, email, role, emailProvider, teamSize, emailVolume, issues, otherChallenge]
 
     client = await pool.connect();
     const result = await client.query(query, values);
