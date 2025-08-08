@@ -34,7 +34,7 @@ export default function SubmittedPage() {
   return (
     <div
       id="submitted-container"
-      className="relative flex flex-col items-center justify-center min-h-screen bg-slate-50 text-center px-4"
+      className="relative flex flex-col items-center justify-center min-h-screen text-center px-4"
     >
       <OrbBackground containerId="submitted-container" />
       <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px] z-5"></div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, FormEvent } from "react"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -226,26 +227,26 @@ export default function LandingPage() {
       <div className="section-divider"></div>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 animated-section-bg">
+      <section id="benefits-section" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center fade-in-up">
-              <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 gentle-pulse">
-                <Clock className="w-8 h-8 text-blue-600 icon-hover" />
+              <div className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-6 gentle-pulse icon-background">
+                <Clock className="w-8 h-8 icon-hover icon-color" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-4">🏃 Save Time</h3>
               <p className="text-slate-600">Cut email triage time by up to 70%.</p>
             </div>
             <div className="text-center fade-in-up" style={{ transitionDelay: "200ms" }}>
-              <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 gentle-pulse">
-                <Brain className="w-8 h-8 text-blue-600 icon-hover" />
+              <div className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-6 gentle-pulse icon-background">
+                <Brain className="w-8 h-8 icon-hover icon-color" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-4">🧠 Stay Focused</h3>
               <p className="text-slate-600">Batch communication and eliminate interruptions.</p>
             </div>
             <div className="text-center fade-in-up" style={{ transitionDelay: "400ms" }}>
-              <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 gentle-pulse">
-                <PenTool className="w-8 h-8 text-blue-600 icon-hover" />
+              <div className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-6 gentle-pulse icon-background">
+                <PenTool className="w-8 h-8 icon-hover icon-color" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-4">✍️ Better Replies</h3>
               <p className="text-slate-600">Drafts that match your tone and context.</p>
@@ -260,7 +261,7 @@ export default function LandingPage() {
       <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 relative">
         <OrbBackground />
         {/* Add a subtle backdrop to ensure text readability */}
-        <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px] z-5"></div>
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[0.5px] z-5"></div>
         <div className="mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-16 fade-in-up">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 drop-shadow-sm">How It Works</h2>
@@ -318,7 +319,7 @@ export default function LandingPage() {
       <div className="section-divider"></div>
 
       {/* Sample Digest Preview - Enhanced with extra padding */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="morning-digest-section" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-16 fade-in-up">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Your Morning Digest</h2>
@@ -387,7 +388,7 @@ export default function LandingPage() {
       <div className="section-divider"></div>
 
       {/* New Enterprise Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 enterprise-bg text-white">
+      <section id="enterprise-section" className="py-20 px-4 sm:px-6 lg:px-8 enterprise-bg text-white">
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16 fade-in-up">
             <h2 className="text-3xl font-bold text-white mb-4">Built for Enterprise, Ready for Teams</h2>
@@ -477,31 +478,44 @@ export default function LandingPage() {
       <div className="section-divider"></div>
 
       {/* Testimonial Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-50">
+      <section id="testimonial-section" className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-50">
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md fade-in-up">
               <blockquote className="text-xl font-medium text-slate-900 mb-6">
-                "It feels like having a chief of staff in my inbox. Total game changer."
+                "Email was taking me away from my primary duties. Genassistant has been a tremendous time saver."
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-slate-300 rounded-full mr-4"></div>
+                <Image
+                  src="/greg-allen.jpg"
+                  alt="Greg Allen"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-full mr-4 object-cover"
+                />
                 <div>
-                  <p className="font-semibold text-slate-900">Sarah Chen</p>
-                  <p className="text-slate-600">VP of Operations, TechCorp</p>
+                  <p className="font-semibold text-slate-900">Greg Allen</p>
+                  <p className="text-slate-600">Hospital Chief of Staff</p>
                 </div>
               </div>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-md fade-in-up" style={{ transitionDelay: "200ms" }}>
               <blockquote className="text-xl font-medium text-slate-900 mb-6">
-                "I used to dread checking my inbox. Now I start every day with clarity."
+                "It just makes running a business smoother. I love the privacy, automation, and how it keeps everything
+                organized."
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-slate-300 rounded-full mr-4"></div>
+                <Image
+                  src="/hannah-j.jpeg"
+                  alt="Hannah J."
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-full mr-4 object-cover"
+                />
                 <div>
-                  <p className="font-semibold text-slate-900">Daniel V.</p>
-                  <p className="text-slate-600">Startup Founder</p>
+                  <p className="font-semibold text-slate-900">Hannah J.</p>
+                  <p className="text-slate-600">Business Owner, Juniper</p>
                 </div>
               </div>
             </div>
@@ -512,7 +526,7 @@ export default function LandingPage() {
       <div className="section-divider"></div>
 
       {/* Contact Form Section - Enhanced with new field */}
-      <section ref={contactFormRef} id="contact-form" className="py-20 px-4 sm:px-6 lg:px-8 animated-section-bg">
+      <section ref={contactFormRef} id="contact-form" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl">
           <div className="text-center mb-12 fade-in-up">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Request Free Access</h2>
@@ -520,7 +534,7 @@ export default function LandingPage() {
               See what you and your team can do with an extra 5 hours each week
             </p>
           </div>
-          <Card className="shadow-lg border-0 fade-in-up" style={{ transitionDelay: "200ms" }}>
+          <Card className="shadow-lg border-0 fade-in-up contact-form-card" style={{ transitionDelay: "200ms" }}>
             <CardContent className="p-8">
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -544,14 +558,14 @@ export default function LandingPage() {
                       <SelectTrigger id="emailProvider" className="mt-1">
                         <SelectValue placeholder="Select your email provider" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="outlook">Outlook</SelectItem>
-                        <SelectItem value="gmail">Gmail</SelectItem>
-                        <SelectItem value="google-workspace">Google Workspace</SelectItem>
-                        <SelectItem value="yahoo">Yahoo</SelectItem>
-                        <SelectItem value="zoho">Zoho</SelectItem>
-                        <SelectItem value="protonmail">ProtonMail</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                      <SelectContent className="select-content-dark">
+                        <SelectItem value="outlook" className="select-item-dark">Outlook</SelectItem>
+                        <SelectItem value="gmail" className="select-item-dark">Gmail</SelectItem>
+                        <SelectItem value="google-workspace" className="select-item-dark">Google Workspace</SelectItem>
+                        <SelectItem value="yahoo" className="select-item-dark">Yahoo</SelectItem>
+                        <SelectItem value="zoho" className="select-item-dark">Zoho</SelectItem>
+                        <SelectItem value="protonmail" className="select-item-dark">ProtonMail</SelectItem>
+                        <SelectItem value="other" className="select-item-dark">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -563,14 +577,14 @@ export default function LandingPage() {
                       <SelectTrigger id="teamSize" className="mt-1">
                         <SelectValue placeholder="Select team size" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="personal">Personal (1)</SelectItem>
-                        <SelectItem value="2-10">2–10</SelectItem>
-                        <SelectItem value="11-50">11–50</SelectItem>
-                        <SelectItem value="51-100">51–100</SelectItem>
-                        <SelectItem value="101-200">101–200</SelectItem>
-                        <SelectItem value="201-300">201–300</SelectItem>
-                        <SelectItem value="300+">300+</SelectItem>
+                      <SelectContent className="select-content-dark">
+                        <SelectItem value="personal" className="select-item-dark">Personal (1)</SelectItem>
+                        <SelectItem value="2-10" className="select-item-dark">2–10</SelectItem>
+                        <SelectItem value="11-50" className="select-item-dark">11–50</SelectItem>
+                        <SelectItem value="51-100" className="select-item-dark">51–100</SelectItem>
+                        <SelectItem value="101-200" className="select-item-dark">101–200</SelectItem>
+                        <SelectItem value="201-300" className="select-item-dark">201–300</SelectItem>
+                        <SelectItem value="300+" className="select-item-dark">300+</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -580,13 +594,13 @@ export default function LandingPage() {
                       <SelectTrigger id="emailVolume" className="mt-1">
                         <SelectValue placeholder="Select email volume" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="10-24">10–24</SelectItem>
-                        <SelectItem value="25-49">25–49</SelectItem>
-                        <SelectItem value="50-74">50–74</SelectItem>
-                        <SelectItem value="75-99">75–99</SelectItem>
-                        <SelectItem value="100-149">100–149</SelectItem>
-                        <SelectItem value="150+">150+</SelectItem>
+                      <SelectContent className="select-content-dark">
+                        <SelectItem value="10-24" className="select-item-dark">10–24</SelectItem>
+                        <SelectItem value="25-49" className="select-item-dark">25–49</SelectItem>
+                        <SelectItem value="50-74" className="select-item-dark">50–74</SelectItem>
+                        <SelectItem value="75-99" className="select-item-dark">75–99</SelectItem>
+                        <SelectItem value="100-149" className="select-item-dark">100–149</SelectItem>
+                        <SelectItem value="150+" className="select-item-dark">150+</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

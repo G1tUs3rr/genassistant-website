@@ -345,21 +345,6 @@
 }
 
 /* Section backgrounds with subtle animation */
-.animated-section-bg {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  background-size: 200% 200%;
-  animation: subtleShift 20s ease-in-out infinite;
-}
-
-@keyframes subtleShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
 
 .how-it-works-bg {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -489,7 +474,7 @@
 .section-divider {
   position: relative;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+  background: #000000;
   overflow: hidden;
 }
 
@@ -592,4 +577,152 @@
   .btn-ripple::after {
     transition: none;
   }
+}
+
+/* Section Background Colors & Dark Theme Fixes */
+#benefits-section {
+  background-color: #242629;
+}
+#how-it-works {
+  background-color: #26282D;
+}
+#morning-digest-section {
+  background-color: #222222;
+}
+#enterprise-section {
+  background-color: #353c4d;
+}
+#testimonial-section {
+  background-color: #252A3A;
+}
+#contact-form {
+  background-color: #26282c;
+}
+footer {
+  background-color: #121729;
+}
+
+/* General text color fix for dark sections */
+#benefits-section h3,
+#benefits-section p,
+#how-it-works h2,
+#how-it-works p,
+#how-it-works h3,
+#morning-digest-section h2,
+#morning-digest-section p,
+#contact-form h2,
+#contact-form p:not(.text-xs) {
+  color: #e2e8f0 !important; /* light slate */
+}
+
+/* Testimonial cards */
+#testimonial-section .bg-white {
+  background-color: #374151 !important; /* gray-700 */
+  border: none !important;
+}
+#testimonial-section blockquote,
+#testimonial-section p {
+  color: #f9fafb !important;
+}
+
+/* Benefits Section Icons */
+.icon-background {
+  background-color: #2a3045;
+}
+.icon-color {
+  color: #a7b5ff !important;
+}
+
+/* Digest Card - Dark Theme from Image */
+.digest-card {
+  background-color: #111827 !important;
+}
+.digest-card .bg-slate-900 {
+  background-color: #111827 !important;
+}
+.digest-card .bg-slate-800 {
+  background-color: #1f2937 !important;
+}
+.digest-card .border-slate-700 {
+  border-color: #374151 !important;
+}
+.digest-card .text-slate-300 {
+  color: #d1d5db !important;
+}
+.digest-card h4 {
+  color: #f9fafb !important;
+}
+.digest-card .border-l-4 {
+  background-color: #1f2937 !important;
+  padding: 1rem !important;
+}
+.digest-card .bg-slate-700 {
+  background-color: #353c4d !important;
+  color: #e5e7eb !important;
+}
+
+/* Form Fields & Container */
+.contact-form-card {
+  background-color: #1B1B1B !important;
+  border-color: #374151 !important; /* gray-700 */
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form button[role="combobox"] {
+  background-color: #1B1B1B !important;
+  color: #f9fafb !important;
+  border-color: #4b5563 !important;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus,
+#contact-form button[role="combobox"]:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
+
+#contact-form label,
+#contact-form #checkbox-group-label {
+  color: #f9fafb !important;
+}
+#contact-form ::placeholder {
+  color: #9ca3af !important;
+}
+#contact-form button[role="combobox"] span {
+  color: #f9fafb !important;
+}
+
+/* Ensure dropdown menu for Select is also dark */
+.select-content-dark {
+  background-color: #111827 !important;
+  border-color: #374151 !important;
+}
+.select-item-dark {
+  color: #f9fafb !important;
+}
+.select-item-dark:focus {
+  background-color: #374151 !important;
+}
+
+/* Submitted Page Dark Theme */
+#submitted-container {
+  background-color: #111827 !important; /* gray-900 */
+}
+#submitted-container h1,
+#submitted-container p {
+  color: #f9fafb !important;
+}
+#submitted-container .bg-white\/20 {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+#submitted-container .text-slate-700 {
+  color: #f9fafb !important;
+}
+#submitted-container .border-slate-300 {
+  border-color: #4b5563 !important;
+}
+#submitted-container .hover\:bg-slate-100:hover {
+  background-color: #374151 !important;
 }
