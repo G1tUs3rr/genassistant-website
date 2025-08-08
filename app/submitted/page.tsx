@@ -37,12 +37,12 @@ export default function SubmittedPage() {
       className="relative flex flex-col items-center justify-center min-h-screen text-center px-4"
     >
       <OrbBackground containerId="submitted-container" />
-      <div className="absolute inset-0 bg-white/20 backdrop-blur-[0.5px] z-5"></div>
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.5px] "></div>
       <div className="relative z-10 max-w-2xl mx-auto fade-in-up">
-        <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 drop-shadow-sm">
+        <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 ">
           Thanks! You’re on the list.
         </h1>
-        <p className="text-xl sm:text-2xl text-slate-600 mb-10 drop-shadow-sm">Impact &gt; Inbox</p>
+        <p className="text-xl sm:text-2xl text-slate-600 mb-10 ">Impact &gt; Inbox</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             onClick={handleShare}

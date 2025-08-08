@@ -261,11 +261,11 @@ export default function LandingPage() {
       <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 relative">
         <OrbBackground />
         {/* Add a subtle backdrop to ensure text readability */}
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-[0.5px] z-5"></div>
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-[0.5px] z-5"></div>
         <div className="mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-16 fade-in-up">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 drop-shadow-sm">How It Works</h2>
-            <p className="text-xl text-slate-600 drop-shadow-sm">Three simple steps to transform your inbox</p>
+            <h2 className="text-3xl font-bold text-white mb-4">How It Works</h2>
+            <p className="text-xl text-slate-200">Three simple steps to transform your inbox</p>
           </div>
           <div className="space-y-12">
             <div className="flex flex-col md:flex-row items-center gap-8 fade-in-up">
@@ -273,8 +273,8 @@ export default function LandingPage() {
                 1
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2 drop-shadow-sm">Classify & Summarize</h3>
-                <p className="text-slate-600">
+                <h3 className="text-xl font-semibold text-white mb-2">Classify & Summarize</h3>
+                <p className="text-slate-200">
                   Genassistant classifies and summarizes your emails, identifying what needs your attention and what can
                   be handled automatically.
                 </p>
@@ -288,8 +288,8 @@ export default function LandingPage() {
                 2
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2 drop-shadow-sm">Draft Quality Replies</h3>
-                <p className="text-slate-600">
+                <h3 className="text-xl font-semibold text-white mb-2">Draft Quality Replies</h3>
+                <p className="text-slate-200">
                   It drafts high-quality replies that match your tone and context, placing them directly in your Outlook
                   Drafts folder for review.
                 </p>
@@ -303,8 +303,8 @@ export default function LandingPage() {
                 3
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2 drop-shadow-sm">Daily Digests</h3>
-                <p className="text-slate-600">
+                <h3 className="text-xl font-semibold text-white mb-2">Daily Digests</h3>
+                <p className="text-slate-200">
                   You review only what matters in one or two daily digests, keeping you informed without the constant
                   interruption.
                 </p>

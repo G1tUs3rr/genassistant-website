@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { Pool } from 'pg';
+import { Pool } from '@neondatabase/serverless';
+import { Resend } from 'resend';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -7,6 +8,8 @@ const pool = new Pool({
     rejectUnauthorized: false,
   },
 });
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   let client;
@@ -45,6 +48,26 @@ export async function POST(request: Request) {
     const result = await client.query(query, values);
 
     console.log('Successfully inserted submission with ID:', result.rows[0].id);
+
+    try {
+      await resend.emails.send({
+        from: 'onboarding@resend.dev',
+        to: process.env.EMAIL_RECIPIENT!,
+        subject: 'New Form Submission',
+        html: `<p>New form submission:</p>
+               <p>Name: ${name}</p>
+               <p>Email: ${email}</p>
+               <p>Role: ${role}</p>
+               <p>Email Provider: ${emailProvider}</p>
+               <p>Team Size: ${teamSize}</p>
+               <p>Email Volume: ${emailVolume}</p>
+               <p>Issues: ${issues.join(', ')}</p>
+               <p>Other Challenge: ${otherChallenge || 'N/A'}</p>`,
+      });
+    } catch (emailError) {
+      console.error('Error sending email:', emailError);
+      // Don't block the response, just log the error
+    }
 
     return NextResponse.json({ message: 'Success' }, { status: 200 });
   } catch (error) {
