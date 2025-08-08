@@ -3,6 +3,8 @@
 import { useEffect, useState, useRef, FormEvent } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+import gregAllenImage from "../public/greg-allen.JPG"
+import hannahJImage from "../public/hannah-j.JPEG"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -487,7 +489,7 @@ export default function LandingPage() {
               </blockquote>
               <div className="flex items-center">
                 <Image
-                  src="/greg-allen.jpg"
+                  src={gregAllenImage}
                   alt="Greg Allen"
                   width={48}
                   height={48}
@@ -507,7 +509,7 @@ export default function LandingPage() {
               </blockquote>
               <div className="flex items-center">
                 <Image
-                  src="/hannah-j.jpeg"
+                  src={hannahJImage}
                   alt="Hannah J."
                   width={48}
                   height={48}
