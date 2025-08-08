@@ -14,8 +14,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import {
   Mail,
-  Twitter,
-  Linkedin,
   Clock,
   Brain,
   PenTool,
@@ -531,7 +529,7 @@ export default function LandingPage() {
       <section ref={contactFormRef} id="contact-form" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl">
           <div className="text-center mb-12 fade-in-up">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Request Free Access</h2>
+            <h2 className="text-3xl font-bold text-blue-400 mb-4">Request Free Access</h2>
             <p className="text-xl text-slate-600">
               See what you and your team can do with an extra 5 hours each week
             </p>
@@ -710,16 +708,12 @@ export default function LandingPage() {
             </div>
             <div className="flex flex-col items-center gap-4">
               <a
-                href="mailto:founder@genassistant.ai"
+                href="mailto:support@genassistant.ai"
                 className="text-slate-400 hover:text-white flex items-center gap-2 hover:underline transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                founder@genassistant.ai
+                support@genassistant.ai
               </a>
-              <div className="flex gap-4">
-                <Twitter className="w-5 h-5 text-slate-400 hover:text-white cursor-pointer icon-hover" />
-                <Linkedin className="w-5 h-5 text-slate-400 hover:text-white cursor-pointer icon-hover" />
-              </div>
             </div>
           </div>
           <div className="border-t border-slate-800 mt-6 pt-6 text-center space-y-2">

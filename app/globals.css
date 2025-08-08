@@ -610,7 +610,6 @@ footer {
 #how-it-works h3,
 #morning-digest-section h2,
 #morning-digest-section p,
-#contact-form h2,
 #contact-form p:not(.text-xs) {
   color: #e2e8f0 !important; /* light slate */
 }
