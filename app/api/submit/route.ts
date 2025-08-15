@@ -12,9 +12,11 @@ const pool = new Pool({
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
+  console.log("📨 Form submission hit the API route");
   let client;
+  let data;
   try {
-    const data = await request.json();
+    data = await request.json();
 
     const {
       name,
@@ -72,6 +74,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Success' }, { status: 200 });
   } catch (error) {
     console.error('Error processing request:', error);
+    if (data) {
+      console.log('Failed submission data for recovery:', JSON.stringify(data, null, 2));
+    }
     return NextResponse.json({ message: 'Error processing request' }, { status: 500 });
   } finally {
     if (client) {
