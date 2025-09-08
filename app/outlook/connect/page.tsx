@@ -2,17 +2,17 @@
 
 import { Button } from "@/components/ui/button"
 import OrbBackground from "@/app/components/orb-background"
-import { useEffect, useState } from "react"
+import { useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 
-export default function ConnectPage() {
+function ConnectPageComponent() {
   const searchParams = useSearchParams()
   const userEmail = searchParams.get("email")
 
-  // Construct the authorization URL on the client side
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "https://pkr3171pw1.execute-api.us-east-1.amazonaws.com/dev"
   const authUrl = userEmail
-    ? `/api/auth/outlook/authorize?mode=user&email=${encodeURIComponent(
+    ? `${API_BASE}/auth/outlook/authorize?mode=user&email=${encodeURIComponent(
         userEmail
       )}`
     : "#"
@@ -35,16 +35,15 @@ export default function ConnectPage() {
 
   return (
     <div
-      id="connect-container"
+      id="submitted-container"
       className="relative flex flex-col items-center justify-center min-h-screen text-center px-4"
     >
-      <OrbBackground containerId="connect-container" />
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.5px] "></div>
+      <OrbBackground containerId="submitted-container" />
       <div className="relative z-10 max-w-2xl mx-auto fade-in-up">
-        <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 ">
+        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
           Connect your Microsoft 365 Account
         </h1>
-        <p className="text-xl sm:text-2xl text-slate-600 mb-10 ">
+        <p className="text-xl sm:text-2xl text-slate-300 mb-10">
           Enable Genassistant to manage your inbox and calendar by connecting your
           account.
         </p>
@@ -60,5 +59,13 @@ export default function ConnectPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ConnectPage() {
+  return (
+    <Suspense fallback={<div className="bg-gray-900 min-h-screen"></div>}>
+      <ConnectPageComponent />
+    </Suspense>
   )
 }
