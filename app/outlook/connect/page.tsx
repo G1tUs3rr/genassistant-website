@@ -44,8 +44,7 @@ function ConnectPageComponent() {
           Connect your Microsoft 365 Account
         </h1>
         <p className="text-xl sm:text-2xl text-slate-300 mb-10">
-          Enable Genassistant to manage your inbox and calendar by connecting your
-          account.
+          Enable Genassistant to manage your inbox and start saving you time.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href={authUrl} passHref legacyBehavior>
