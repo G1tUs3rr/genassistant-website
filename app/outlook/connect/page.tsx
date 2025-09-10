@@ -1,21 +1,18 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import OrbBackground from "@/app/components/orb-background"
-import { useEffect, Suspense } from "react"
+import { useEffect, Suspense, useState } from "react"
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 
 function ConnectPageComponent() {
   const searchParams = useSearchParams()
-  const userEmail = searchParams.get("email")
+  const [userEmail, setUserEmail] = useState(searchParams.get("email") || "")
+  const [isConnecting, setIsConnecting] = useState(false)
 
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "https://pkr3171pw1.execute-api.us-east-1.amazonaws.com/dev"
-  const authUrl = userEmail
-    ? `${API_BASE}/auth/outlook/authorize?mode=user&email=${encodeURIComponent(
-        userEmail
-      )}`
-    : "#"
 
   useEffect(() => {
     const element = document.querySelector(".fade-in-up")
@@ -25,12 +22,23 @@ function ConnectPageComponent() {
   }, [])
 
   const handleConnectClick = (e: React.MouseEvent) => {
-    if (!userEmail) {
-      e.preventDefault()
-      alert(
-        "Email not found in URL. Please use the link provided in your invitation."
-      )
+    e.preventDefault()
+    
+    if (!userEmail.trim()) {
+      alert("Please enter your email address")
+      return
     }
+
+    if (!userEmail.includes("@")) {
+      alert("Please enter a valid email address")
+      return
+    }
+
+    setIsConnecting(true)
+    
+    // Build the auth URL and redirect
+    const authUrl = `${API_BASE}/auth/outlook/authorize?mode=user&email=${encodeURIComponent(userEmail.trim())}`
+    window.location.href = authUrl
   }
 
   return (
@@ -46,15 +54,31 @@ function ConnectPageComponent() {
         <p className="text-xl sm:text-2xl text-slate-300 mb-10">
           Enable Genassistant to manage your inbox and start saving you time.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href={authUrl} passHref legacyBehavior>
-            <a
+        
+        <div className="w-full max-w-md mx-auto mb-8">
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2 text-left">
+                Email Address
+              </label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="Enter your email address"
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
+                className="w-full px-4 py-3 text-lg bg-slate-800/50 border-slate-600 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
+                disabled={isConnecting}
+              />
+            </div>
+            <Button
               onClick={handleConnectClick}
-              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg btn-enhanced-hover no-underline flex items-center justify-center"
+              disabled={isConnecting || !userEmail.trim()}
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg btn-enhanced-hover disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Connect with Microsoft 365
-            </a>
-          </Link>
+              {isConnecting ? "Connecting..." : "Connect with Microsoft 365"}
+            </Button>
+          </div>
         </div>
       </div>
     </div>
