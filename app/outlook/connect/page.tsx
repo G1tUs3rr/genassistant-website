@@ -55,10 +55,10 @@ function ConnectPageComponent() {
           Enable Genassistant to manage your inbox and start saving you time.
         </p>
         
-        <div className="w-full max-w-md mx-auto mb-8">
-          <div className="space-y-4">
+        <div className="w-full max-w-lg mx-auto mb-8">
+          <div className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2 text-left">
+              <label htmlFor="email" className="block text-lg font-medium text-slate-300 mb-3 text-left">
                 Email Address
               </label>
               <Input
@@ -67,14 +67,14 @@ function ConnectPageComponent() {
                 placeholder="Enter your email address"
                 value={userEmail}
                 onChange={(e) => setUserEmail(e.target.value)}
-                className="w-full px-4 py-3 text-lg bg-slate-800/50 border-slate-600 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500"
+                className="w-full px-6 py-5 text-xl bg-slate-800/50 border-slate-600 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
                 disabled={isConnecting}
               />
             </div>
             <Button
               onClick={handleConnectClick}
               disabled={isConnecting || !userEmail.trim()}
-              className="w-full bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg btn-enhanced-hover disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white px-12 py-6 text-xl font-semibold rounded-lg shadow-lg btn-enhanced-hover disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isConnecting ? "Connecting..." : "Connect with Microsoft 365"}
             </Button>
